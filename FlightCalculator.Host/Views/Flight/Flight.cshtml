@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Flights";
+}
+@model FlightViewModel
+
+<script src="/lib/jquery/dist/jquery.js"></script>
+<script type="text/javascript">
+
+    var countryChange = function (ddCountryId, ddAirportId) {
+        $('#'+ddCountryId).change(function() {
+            var url = '@Url.Content("~/")' + "Flight/GetAirports";
+            var selectedCountry = "#"+ddCountryId;
+            $.getJSON(url,
+                { country: $(selectedCountry).val() },
+                function (data) {
+                    var items = '';
+                    $('#'+ddAirportId).empty();
+                    $.each(data,
+                        function (i, airport) {
+                            items += "<option value='" + airport.value + "'>" + airport.text + "</option>";
+                        });
+                    $('#'+ddAirportId).html(items);
+                });
+        });
+    }
+
+    $(document).ready(function () {
+        countryChange('FromCountry','SelectedFlight_FromAirport_Code');
+    });
+
+    $(document).ready(function () {
+        countryChange('ToCountry', 'SelectedFlight_ToAirport_Code');
+    });
+</script>    
+
+<div><h1>Flights</h1></div>
+
+<form asp-controller="Flight" asp-action="Submit" method="post">
+    <input asp-for="SelectedFlight.Id" type="hidden" />
+    <div class="form-group row">
+        <label class="col-md-2 control-label">With aircraft </label>
+        <select class="col-md-3" asp-for="SelectedFlight.Aircraft.Id" asp-items="@(new SelectList(Model.ExistingAircraft,"Id","Name"))"></select>
+    </div>
+    
+    <div class="form-group row">
+        <label class="col-md-2">From country </label>
+        <select class=".form-control col-md-3" asp-for="FromCountry" asp-items="@(new SelectList(Model.Countries))"></select>
+        <label class="col-md-2">using airport </label>
+        <select class=".form-control col-md-3" asp-for="SelectedFlight.FromAirport.Code"></select>
+    </div>    
+    <div class="form-group row">
+        <label class="col-md-2">To country </label>
+        <select class=".form-control col-md-3"asp-for="ToCountry" asp-items="@(new SelectList(Model.Countries))"></select>
+        <label class="col-md-2">using airport </label>
+        <select class=".form-control col-md-3" asp-for="SelectedFlight.ToAirport.Code"></select>
+    </div>
+    <div class="form-group">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Aircraft id</th>
+            <th>From</th>
+            <th>To</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var flight in Model.ExistingFlights)
+        {
+            <tr>
+                <td>@flight.Id</td>
+                <td>@flight.Aircraft.Name</td>
+                <td>@flight.FromAirport.Label</td>
+                <td>@flight.ToAirport.Label</td>
+                <td><a asp-area="" asp-controller="Flight" asp-action="List" asp-route-selectId="@flight.Id">Edit</a></td>
+                <td><a asp-area="" asp-controller="Flight" asp-action="Delete" asp-route-selectId="@flight.Id">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

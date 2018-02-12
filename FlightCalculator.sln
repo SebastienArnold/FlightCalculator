@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightCalculator.Host", "FlightCalculator.Host\FlightCalculator.Host.csproj", "{4A55B7F6-C14A-4FEA-BD1C-2B3A03A6531F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightCalculator.Core", "FlightCalculator.Domain\FlightCalculator.Core.csproj", "{425F761E-2F03-4F5C-AB79-FCBAC572982D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightCalculator.DataAccessLayer", "FlightCalculator.DataAccessLayer\FlightCalculator.DataAccessLayer.csproj", "{C5484142-D5B5-4E92-B4E8-D4108340E966}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlightCalculator.Business", "FlightCalculator.Business\FlightCalculator.Business.csproj", "{3E44FC17-2B73-48F8-9320-A502C7C51676}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlightCalculator.UnitTest", "FlightCalculator.UnitTest\FlightCalculator.UnitTest.csproj", "{B2F27D36-3845-4E81-BD54-DAC1333DCAC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4A55B7F6-C14A-4FEA-BD1C-2B3A03A6531F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4A55B7F6-C14A-4FEA-BD1C-2B3A03A6531F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4A55B7F6-C14A-4FEA-BD1C-2B3A03A6531F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4A55B7F6-C14A-4FEA-BD1C-2B3A03A6531F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{425F761E-2F03-4F5C-AB79-FCBAC572982D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{425F761E-2F03-4F5C-AB79-FCBAC572982D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{425F761E-2F03-4F5C-AB79-FCBAC572982D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{425F761E-2F03-4F5C-AB79-FCBAC572982D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5484142-D5B5-4E92-B4E8-D4108340E966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5484142-D5B5-4E92-B4E8-D4108340E966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5484142-D5B5-4E92-B4E8-D4108340E966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5484142-D5B5-4E92-B4E8-D4108340E966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E44FC17-2B73-48F8-9320-A502C7C51676}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E44FC17-2B73-48F8-9320-A502C7C51676}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E44FC17-2B73-48F8-9320-A502C7C51676}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E44FC17-2B73-48F8-9320-A502C7C51676}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F27D36-3845-4E81-BD54-DAC1333DCAC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F27D36-3845-4E81-BD54-DAC1333DCAC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F27D36-3845-4E81-BD54-DAC1333DCAC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F27D36-3845-4E81-BD54-DAC1333DCAC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {009545C3-EF1C-41B9-869B-A6DE678C3894}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,60 @@
+﻿@{
+    ViewData["Title"] = "Report";
+}
+@model ReportViewModel
+
+<div><h1>Global report</h1></div>
+
+<div>
+    <h2>Created flights</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Departure</th>
+            <th>Arrivals</th>
+            <th>Aircraft</th>
+            <th>Distance (Km)</th>
+            <th>Fuel consumption (Kg)</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Flights)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.FromAirport.Name (@item.FromAirport.Code)</td>
+                <td>@item.ToAirport.Name (@item.ToAirport.Code)</td>
+                <td>@item.Aircraft.Name (@item.Aircraft.Id)</td>
+                <td>@item.Distance</td>
+                <td>@item.FuelConsumption</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h2>Available aircraft</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Consumption per Kilometer (Kg)</th>
+            <th>Takeoff effort (Kg)</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Aircraft)
+        {
+            <tr>
+                <th>@item.Id</th>
+                <td>@item.Name</td>
+                <td>@item.ConsumptionPerKilometer</td>
+                <td>@item.TakeoffEffort</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

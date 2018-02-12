@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Aircraft";
+}
+@model AircraftViewModel
+
+<div><h1>Aircraft</h1></div>
+
+<form asp-controller="Aircraft" asp-action="Submit" method="post">
+    <input asp-for="SelectedAircraft.Id" type="hidden"/>
+    <div class="form-group row">
+        <label class="col-md-2 control-label">Name </label>
+        <input class="col-md-3" asp-for="SelectedAircraft.Name"/>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2 control-label">Consumption per kilometer (kg)</label>
+        <input class="col-md-3" asp-for="SelectedAircraft.ConsumptionPerKilometer" />
+        <label class="col-md-2 control-label">Takeoff effort</label>
+        <input class="col-md-3" asp-for="SelectedAircraft.TakeoffEffort" />
+    </div>
+    <div class="form-group row">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<br/>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Consumption per Kilometer (Kg)</th>
+        <th>Takeoff effort</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var aircraft in Model.ExistingAircraft)
+    {
+        <tr>
+            <td>@aircraft.Id</td>
+            <td>@aircraft.Name</td>
+            <td>@aircraft.ConsumptionPerKilometer</td>
+            <td>@aircraft.TakeoffEffort</td>
+            <td><a asp-area="" asp-controller="Aircraft" asp-action="List" asp-route-selectId="@aircraft.Id">Edit</a></td>
+            <td><a asp-area="" asp-controller="Aircraft" asp-action="Delete" asp-route-selectId="@aircraft.Id">Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
